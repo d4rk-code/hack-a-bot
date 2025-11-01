@@ -1,73 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Hack-a-Bot | Sports Training Generator</title>
-    <link rel="stylesheet" href="/static/css/style.css" />
-    <script src="/static/js/script.js" defer></script>
-  </head>
-
-  <body>
-    <header>
-      <h1>🤖 Hack-a-Bot — AI Sports Training</h1>
-      <p class="tag">Custom training program generation — fill the athlete profile and goals</p>
-    </header>
-
-    <main class="container">
-      <form id="plan-form" action="/generate_plan/" method="POST">
-        <!-- csrf token placeholder if using Django properly -->
-        <!-- {% csrf_token %} -->
-
-        <fieldset>
-          <legend> Athlete Details </legend>
-          <input type="number" name="age" min="6" max="100" placeholder="Age (years)" required />
-          <input type="number" name="height_cm" min="50" max="250" placeholder="Height (cm)" required />
-          <input type="number" name="weight_kg" min="20" max="300" placeholder="Weight (kg)" required />
-          <select name="gender" required>
-            <option value="" disabled selected>Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-          </select>
-        </fieldset>
-
-        <fieldset>
-          <legend> Training Request </legend>
-          <input type="text" name="sport" placeholder="Sport (e.g., Football, Badminton)" required />
-          <input type="number" name="duration_weeks" min="1" max="52" placeholder="Duration (weeks)" required />
-          <select name="fitness_level" required>
-            <option value="" disabled selected>Fitness level</option>
-            <option value="Beginner">Beginner</option>
-            <option value="Intermediate">Intermediate</option>
-            <option value="Advanced">Advanced</option>
-          </select>
-
-          <label class="label-inline">Goals (select one or more)</label>
-          <div class="multigoal">
-            <label><input type="checkbox" name="goal_strength" /> Strength</label>
-            <label><input type="checkbox" name="goal_endurance" /> Endurance</label>
-            <label><input type="checkbox" name="goal_speed" /> Speed/Agility</label>
-            <label><input type="checkbox" name="goal_power" /> Power/Explosiveness</label>
-            <label><input type="checkbox" name="goal_weight_loss" /> Weight Loss</label>
-          </div>
-
-          <label class="label-inline">Equipment available</label>
-          <select name="equipment">
-            <option value="none">None (bodyweight)</option>
-            <option value="basic">Basic (dumbbells, bands)</option>
-            <option value="full_gym">Full gym</option>
-          </select>
-
-          <label class="label-inline">Existing injuries / constraints</label>
-          <input type="text" name="injuries" placeholder="e.g., knee pain, none" />
-        </fieldset>
-
-        <button type="submit" id="generate-btn">Generate Training Plan</button>
-        <div id="loading" class="hidden">⏳ Generating plan — this may take a few seconds...</div>
-      </form>
-    </main>
-
-    <footer>© 2025 Hack-a-Bot Team</footer>
-  </body>
+<html>
+<head>
+  <title>Hack-a-Bot</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Hack-a-Bot 🧠</h1>
+    <p>Your personal AI-powered workout planner.</p>
+    <a href="{% url 'generate_form' %}" class="btn">Generate Training Plan</a>
+  </div>
+</body>
 </html>
 

@@ -1,4 +1,4 @@
-/* bot/static/css/style.css */
+/* static/css/style.css - adapted friend style (dark athletic) */
 
 :root{
   --bg:#071126;
@@ -6,80 +6,78 @@
   --accent:#34d399;
   --text:#e6eef6;
   --muted:#94a3b8;
+  --glass: rgba(255,255,255,0.03);
 }
 
+*{box-sizing:border-box;margin:0;padding:0}
 body{
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: linear-gradient(180deg, #041023 0%, #071126 100%);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: linear-gradient(180deg,#041023 0%,#071126 100%);
   color:var(--text);
-  margin:0;
-  padding:2rem 1rem;
+  min-height:100vh;
+  padding:20px;
   display:flex;
-  flex-direction:column;
   align-items:center;
+  justify-content:center;
 }
-
-header{ text-align:center; margin-bottom:1rem; }
-h1{ color:var(--accent); margin:0; }
-.tag{ color:var(--muted); margin-top:0.5rem; }
 
 .container{
   width:100%;
-  max-width:900px;
+  max-width:1100px;
   background:var(--card);
-  padding:1.6rem;
   border-radius:12px;
-  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+  padding:22px;
+  box-shadow: 0 10px 40px rgba(2,6,23,0.6);
 }
 
-fieldset{
-  border:1px solid rgba(255,255,255,0.03);
-  padding:12px;
-  border-radius:8px;
-  margin-bottom:12px;
-}
+/* Hero */
+.hero-card{ border-radius:12px; padding:40px; text-align:center; position:relative; overflow:hidden; background:linear-gradient(135deg, rgba(52,211,153,0.06), rgba(255,255,255,0.02));}
+.hero-title{ font-size:36px; color:var(--accent); margin-bottom:6px; font-weight:800;}
+.hero-subtitle{ color:var(--text); opacity:0.9; margin-bottom:8px;}
+.hero-highlight{ color:#fff; font-weight:700; margin-bottom:18px;}
 
-input, select, button{
-  width:calc(50% - 12px);
-  padding:10px;
-  margin:8px 6px;
-  border-radius:8px;
-  border:1px solid rgba(255,255,255,0.06);
-  background:transparent;
-  color:var(--text);
-}
-
-input[ type="text" ], input[type="number"]{ min-width:200px; }
-
-label.label-inline{ display:block; margin:8px 6px; color:var(--muted); font-size:0.9rem; }
-
-.multigoal label{ display:inline-block; margin-right:8px; font-size:0.9rem; color:var(--text); }
-
-button{
-  width:100%;
+/* Buttons */
+.btn-hero, .btn-submit, .btn {
+  display:inline-block;
   background:var(--accent);
   color:#042027;
-  font-weight:700;
   border:none;
-  padding:12px;
-  margin-top:8px;
-  cursor:pointer;
+  padding:14px 22px;
   border-radius:10px;
-  transition:transform .12s ease, box-shadow .12s;
+  font-weight:700;
+  cursor:pointer;
+}
+.btn-back{ background:transparent; color:var(--muted); border:none; margin-bottom:12px; cursor:pointer;}
+
+/* Card + form */
+.card{ background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:10px; overflow:hidden; }
+.card-header{ padding:18px; background:linear-gradient(90deg, rgba(52,211,153,0.06), rgba(255,255,255,0.02)); }
+.card-title{ font-size:22px; color:var(--accent); margin-bottom:6px; }
+.card-description{ color:var(--muted); }
+
+.card-content{ padding:18px; }
+.form-section{ margin-bottom:18px; }
+.form-grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+.form-grid-full{ display:flex; flex-direction:column; gap:12px; }
+.form-group{ display:flex; flex-direction:column; gap:6px; }
+label{ color:var(--muted); font-size:0.9rem; }
+input, select, textarea{
+  padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:var(--text);
 }
 
-button:hover{ transform:translateY(-2px); box-shadow:0 8px 20px rgba(52,211,153,0.12); }
+/* Goals style */
+.multigoal label{ display:inline-block; margin-right:10px; color:var(--text); font-size:0.95rem; }
 
-.hidden{ display:none; }
+/* Plan page */
+.plan-text{ white-space:pre-wrap; background:rgba(0,0,0,0.12); padding:12px; border-radius:8px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace; color:var(--text);}
 
-.plan-text{
-  white-space:pre-wrap;
-  background:rgba(0,0,0,0.15);
-  padding:12px;
-  border-radius:8px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
-  color:var(--text);
+/* toast */
+.toast{ position:fixed; right:20px; bottom:20px; background:#fff; color:#042027; padding:10px 14px; border-radius:8px; box-shadow:0 8px 30px rgba(2,6,23,0.6); transform:translateX(320px); transition:transform 0.24s ease; }
+.toast.show{ transform:translateX(0); }
+
+/* responsive tweaks */
+@media (max-width:720px){
+  .hero-title{ font-size:28px; }
+  .container{ padding:16px; }
 }
-
-footer{ color:var(--muted); margin-top:1rem; }
 

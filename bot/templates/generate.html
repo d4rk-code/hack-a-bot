@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate Plan</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h2>Enter your details</h2>
+    <form method="POST" action="{% url 'generate_plan' %}">
+      {% csrf_token %}
+      <label>Age:</label><input type="number" name="age" required><br>
+      <label>Height (cm):</label><input type="number" name="height_cm" required><br>
+      <label>Weight (kg):</label><input type="number" name="weight_kg" required><br>
+      <label>Gender:</label>
+      <select name="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select><br>
+      <label>Sport:</label><input type="text" name="sport" required><br>
+      <label>Duration (weeks):</label><input type="number" name="duration_weeks" value="4"><br>
+      <label>Fitness Level:</label><input type="text" name="fitness_level"><br>
+      <label>Equipment:</label><input type="text" name="equipment"><br>
+      <label>Injuries:</label><input type="text" name="injuries"><br>
+      <button type="submit">Generate Plan</button>
+    </form>
+  </div>
+</body>
+</html>
+

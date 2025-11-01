@@ -1,40 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Training Plan — Hack-a-Bot</title>
-    <link rel="stylesheet" href="/static/css/style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>✅ Your AI-Generated Training Plan</h1>
-    </header>
-
-    <main class="container">
-      <section class="meta">
-        <h3>Athlete profile</h3>
-        <ul>
-          <li>Age: {{ age }}</li>
-          <li>Height: {{ height_cm }} cm</li>
-          <li>Weight: {{ weight_kg }} kg</li>
-          <li>Gender: {{ gender }}</li>
-          <li>Sport: {{ sport }}</li>
-          <li>Duration: {{ duration_weeks }} weeks</li>
-          <li>Goals: {{ goals }}</li>
-          <li>Equipment: {{ equipment }}</li>
-          <li>Injuries: {{ injuries }}</li>
-        </ul>
-      </section>
-
-      <section class="plan">
-        <h3>Training Program</h3>
-        <pre class="plan-text">{{ plan|safe }}</pre>
-      </section>
-
-      <a href="/" class="btn">⬅️ Generate another plan</a>
-    </main>
-
-    <footer>© 2025 Hack-a-Bot Team</footer>
-  </body>
+<html>
+<head>
+  <title>Training Plan</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h2>Your Personalized Training Plan 💪</h2>
+    <p><strong>Sport:</strong> {{ sport }}</p>
+    <p><strong>Goals:</strong> {{ goals }}</p>
+    <pre>{{ plan }}</pre>
+    <a href="/">Back to Home</a>
+  </div>
+</body>
 </html>
 
